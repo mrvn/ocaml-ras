@@ -1,0 +1,12 @@
+# OASIS_START
+# DO NOT EDIT (digest: 5fe8ee5fe774c73f8a3f8597b567e5ad)
+version = "1.0.0"
+description = "Redundancy archive system for OCaml"
+requires = "bigarray"
+archive(byte) = "ras.cma"
+archive(byte, plugin) = "ras.cma"
+archive(native) = "ras.cmxa"
+archive(native, plugin) = "ras.cmxs"
+exists_if = "ras.cma"
+# OASIS_STOP
+

@@ -1,0 +1,36 @@
+# OASIS_START
+# DO NOT EDIT (digest: 3ec7864451f88e8a5314c276550d7f9c)
+# Ignore VCS directories, you can use the same kind of rule outside 
+# OASIS_START/STOP if you want to exclude directories that contains 
+# useless stuff for the build process
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library ras
+"lib/ras.cmxs": use_ras
+<lib/*.ml{,i}>: oasis_library_ras_ccopt
+"lib/field.c": oasis_library_ras_ccopt
+"lib/ras_stubs.c": oasis_library_ras_ccopt
+<lib/ras.{cma,cmxa}>: oasis_library_ras_cclib
+"lib/libras_stubs.lib": oasis_library_ras_cclib
+"lib/dllras_stubs.dll": oasis_library_ras_cclib
+"lib/libras_stubs.a": oasis_library_ras_cclib
+"lib/dllras_stubs.so": oasis_library_ras_cclib
+<lib/ras.{cma,cmxa}>: use_libras_stubs
+<lib/*.ml{,i}>: pkg_bigarray
+"lib/field.c": pkg_bigarray
+"lib/ras_stubs.c": pkg_bigarray
+# Executable test
+<test/test.{native,byte}>: use_ras
+<test/test.{native,byte}>: pkg_bigarray
+<test/*.ml{,i}>: use_ras
+<test/*.ml{,i}>: pkg_bigarray
+<test/test.{native,byte}>: custom
+# OASIS_STOP

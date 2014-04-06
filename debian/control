@@ -1,0 +1,45 @@
+Source: ocaml-ras
+Priority: optional
+Maintainer: Goswin von Brederlow <goswin-v-b@web.de>
+Build-Depends:
+ debhelper (>= 9),
+ dh-ocaml (>= 0.9),
+ ocaml-findlib,
+ libfindlib-ocaml-dev,
+ ocaml-nox (>= 3.11)
+Standards-Version: 3.9.3
+Section: ocaml
+Homepage: https://github.org/mrvn/ocaml-ras
+Vcs-Git: git://github.com/mrvn/ocaml-ras.git
+
+Package: libras-ocaml-dev
+Architecture: any
+Depends:
+ ${ocaml:Depends},
+ ${shlibs:Depends},
+ ${misc:Depends}
+Provides: ${ocaml:Provides}
+Recommends:
+ ocaml-findlib
+Description: redundancy archive system for OCaml
+ OCaml-Ras is an extension library for the OCaml language, providing
+ functions to calculate redundancy blocks from blocks of data
+ and to restore the data given enough data or redundancy blocks.
+ Redundancy is calculated in a finite field of size 2^16 allowing
+ for up to 65536 data + redundancy blocks.
+
+Package: libras-ocaml
+Architecture: any
+Depends:
+ ${ocaml:Depends},
+ ${shlibs:Depends},
+ ${misc:Depends}
+Provides: ${ocaml:Provides}
+Description: redundancy archive system for OCaml
+ OCaml-Ras is an extension library for the OCaml language, providing
+ functions to calculate redundancy blocks from blocks of data
+ and to restore the data given enough data or redundancy blocks.
+ Redundancy is calculated in a finite field of size 2^16 allowing
+ for up to 65536 data + redundancy blocks.
+ .
+ This package contains runtime libraries for programs using ocaml-ras.

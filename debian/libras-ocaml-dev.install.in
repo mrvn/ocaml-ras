@@ -1,0 +1,6 @@
+@OCamlStdlibDir@/ras/*.cm[ixo]
+@OCamlStdlibDir@/ras/*.ml*
+@OCamlStdlibDir@/ras/*.a
+OPT: @OCamlStdlibDir@/ras/*.cmxa
+DYN: @OCamlStdlibDir@/ras/*.cmxs
+usr/share/doc/libras-ocaml-dev

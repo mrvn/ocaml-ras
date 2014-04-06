@@ -1,0 +1,42 @@
+OASISFormat: 0.3
+Name:        ras
+Version:     1.0.0
+Synopsis:    Redundancy archive system for OCaml
+Authors:     Nick Cleaton <nick@cleaton.net>,
+             Goswin von Brederlow <goswin-v-b@web.de>
+LicenseFile: LICENSE
+License:     LGPL-2.1+
+BuildTools:  ocamlbuild
+Plugins:     DevFiles (0.3), META (0.3)
+
+Flag strict
+  Description: Strict compile-time checks
+  Default: true
+  
+Library ras
+  Path:            lib
+  CompiledObject:  best
+  Modules:         Ras
+  CSources:        field.h, field.c, ras_stubs.c
+  CCOpt:	   -D_FORTIFY_SOURCE=2 -std=c99 -O2 -W -Wall -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security
+  CCLib:	   -Wl,-z,relro
+  BuildDepends:	   bigarray
+
+Executable test
+  Path: test
+  Install: false
+  Custom: true
+  CompiledObject: best
+  MainIs: test.ml
+  BuildDepends: ras
+
+Test main
+  Command: $test
+  TestTools: test
+
+Document ras
+  Title:                Ras documentation
+  Type:                 ocamlbuild (0.3)
+  BuildTools+:          ocamldoc
+  XOCamlbuildPath:      lib
+  XOCamlbuildLibraries: ras
